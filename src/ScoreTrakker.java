@@ -17,9 +17,10 @@ public class ScoreTrakker {
 	while (in.hasNextLine()) {
 	String studentName = in.nextLine();
 	int studentScore = in.nextInt();
-	in.nextLine();                      //consume newline left-over
 	Student student = new Student(studentName, studentScore);
 	students.add(student);
+	in.nextLine();                      //consume newline left-over
+
 		}
 	
 	}
@@ -28,21 +29,22 @@ public class ScoreTrakker {
 		Collections.sort(students);
 		
 		for (Student s: students) {
-			s.toString();
-			System.out.println();
+			//s.toString();
+			System.out.println(s.toString());
 		}
 	}
 	
 	
-	public void processFiles() { //call loadDataFromFile and printInOrder
+	public void processFiles() throws FileNotFoundException { //call loadDataFromFile and printInOrder
 		loadDataFromFile("scores.txt");
-		//printInOrder
+		printInOrder();
 	}
 	
 	
-	public static void main(String[] args)  {
+	public static void main(String[] args) throws FileNotFoundException {
 		ScoreTrakker trakker = new ScoreTrakker();
 		trakker.processFiles();
+		System.out.println("Finished");
 		
 		
 	}
