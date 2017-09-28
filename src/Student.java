@@ -11,7 +11,7 @@ public class Student implements Comparable<Student> {
 	
 	
 	@Override
-	public int compareTo(Student o) { //base it on score
+	public int compareTo(Student o) { //sorting of students will be based on score
 		if (score < o.score) {
 			return -1;
 		}

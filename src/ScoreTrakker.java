@@ -10,42 +10,59 @@ import java.util.Scanner;
 
 public class ScoreTrakker {
 	private ArrayList<Student> students = new ArrayList<Student>();
+	private String[] files = {"scores.txt", "badscore.txt", "nofile.txt"}; 
+	
+	
 	
 	public void loadDataFromFile(String s) throws FileNotFoundException { //reads data from and stores into arrayList	
 	FileReader reader = new FileReader(s);
 	Scanner in = new Scanner(reader);
+	
 	while (in.hasNextLine()) {
 	String studentName = in.nextLine();
-	int studentScore = in.nextInt();
-	Student student = new Student(studentName, studentScore);
+	String studentScore = in.nextLine();
+	try {
+	int numScore = Integer.parseInt(studentScore);
+	Student student = new Student(studentName, numScore);
 	students.add(student);
-	in.nextLine();                      //consume newline left-over
-
+	
+	} catch (NumberFormatException n){
+		System.out.println("Incorrect format for " + studentName + " not a valid score: " + studentScore);
+		System.out.println();
+	}
+	
 		}
 	
 	}
 	
 	public void printInOrder() { //sort and print arrayList using iterated loop
 		Collections.sort(students);
-		
+		if (students.size() > 0) {
+		System.out.println("Student Score List");
+		}
 		for (Student s: students) {
-			//s.toString();
 			System.out.println(s.toString());
 		}
+		System.out.println();
+		students.clear();     //clears arrayList of students for next file
 	}
 	
 	
-	public void processFiles() throws FileNotFoundException { //call loadDataFromFile and printInOrder
-		loadDataFromFile("scores.txt");
+	public void processFiles() { //call loadDataFromFile and printInOrder
+		for (String s: files) {
+			try {
+		loadDataFromFile(s);
+			} catch (FileNotFoundException e) {
+				System.out.println("Can't open file: " + s);
+			}
 		printInOrder();
+		}
 	}
 	
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		ScoreTrakker trakker = new ScoreTrakker();
 		trakker.processFiles();
-		System.out.println("Finished");
-		
 		
 	}
 }
