@@ -1,0 +1,29 @@
+commit fc39d9d24ee160cda0296ce2969b9861c86adf9c
+Author: Patrick Ng <png@mines.edu>
+Date:   Thu Sep 28 11:24:43 2017 -0600
+
+    Final Commit
+
+commit 7645e9375baa36877851116c8804e77d0096dc8a
+Author: Patrick Ng <png@mines.edu>
+Date:   Tue Sep 26 12:04:38 2017 -0600
+
+    Part I working
+
+commit d5c3384066cb5fe1d2b8f5a03bfe6505942170bc
+Author: Patrick Ng <png@mines.edu>
+Date:   Tue Sep 26 11:58:21 2017 -0600
+
+    all methods for Part I are created
+
+commit f24cd01d7e636e34d291d3f8d054f76030e0b4cf
+Author: Patrick Ng <png@mines.edu>
+Date:   Tue Sep 26 11:21:28 2017 -0600
+
+    added .gitignore
+
+commit 52dbd4760c4febc7c4a12b7216693690747fa8fc
+Author: Patrick Ng <png@mines.edu>
+Date:   Tue Sep 26 11:14:36 2017 -0600
+
+    first commit
